@@ -1,0 +1,58 @@
+[
+ {
+    "name": "Alabama",
+    "region": "south",
+    "id": 1,
+    "pct": 0.1,
+    "total": 1837292,
+    "group": "100000 to 149999"
+  },
+  {
+    "name": "Alaska",
+    "region": "west",
+    "id": 2,
+    "pct": 0.037,
+    "total": 250875,
+    "group": "10000 to 14999"
+  },
+  {
+    "name": "Alaska",
+    "region": "west",
+    "id": 2,
+    "pct": 0.077,
+    "total": 250875,
+    "group": "15000 to 24999"
+  },
+
+  {
+    "name": "Alaska",
+    "region": "west",
+    "id": 2,
+    "pct": 0.182,
+    "total": 250875,
+    "group": "100000 to 149999"
+  },
+  {
+    "name": "Arizona",
+    "region": "west",
+    "id": 4,
+    "pct": 0.115,
+    "total": 2381501,
+    "group": "100000 to 149999"
+  },
+  {
+    "name": "California",
+    "region": "west",
+    "id": 6,
+    "pct": 0.146,
+    "total": 12581722,
+    "group": "100000 to 149999"
+  },
+  {
+    "name": "New York",
+    "region": "northeast",
+    "id": 36,
+    "pct": 0.14,
+    "total": 7214163,
+    "group": "100000 to 149999"
+  }
