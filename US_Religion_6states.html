@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .error {
+        color: red;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-lite@4.17.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm//vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 400, "continuousHeight": 300}}, "concat": [{"mark": "bar", "encoding": {"color": {"field": "gender", "legend": null, "scale": {"domain": ["Protestant", "Catholic"], "range": ["#1f77b4", "#e377c2"]}, "type": "nominal"}, "x": {"field": "congregations", "sort": "descending", "title": "Congregations", "type": "quantitative"}, "y": {"axis": null, "field": "state", "type": "ordinal"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2010, "min": 1980, "step": 10}, "init": {"year": 1980}}}, "title": "Catholic", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.cop === 1),'Catholic','Protestant')", "as": "gender"}, {"filter": "(datum.gender === 'Catholic')"}], "width": 250}, {"mark": "text", "encoding": {"text": {"field": "state", "type": "ordinal"}, "y": {"axis": null, "field": "state", "type": "ordinal"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2010, "min": 1980, "step": 10}, "init": {"year": 1980}}}, "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.cop === 1),'Catholic','Protestant')", "as": "gender"}], "width": 20}, {"mark": "bar", "encoding": {"color": {"field": "gender", "legend": null, "scale": {"domain": ["Protestant", "Catholic"], "range": ["#1f77b4", "#e377c2"]}, "type": "nominal"}, "x": {"field": "congregations", "title": "Congregations", "type": "quantitative"}, "y": {"axis": null, "field": "state", "type": "ordinal"}}, "selection": {"year": {"type": "single", "fields": ["year"], "bind": {"input": "range", "max": 2010, "min": 1980, "step": 10}, "init": {"year": 1980}}}, "title": "Protestant", "transform": [{"filter": {"selection": "year"}}, {"calculate": "if((datum.cop === 1),'Catholic','Protestant')", "as": "gender"}, {"filter": "(datum.gender === 'Protestant')"}], "width": 250}], "data": {"url": "https://raw.githubusercontent.com/EEnoch/Altair2022/main/6states.json"}, "spacing": 5, "$schema": "https://vega.github.io/schema/vega-lite/v4.17.0.json"};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div class="error" style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
